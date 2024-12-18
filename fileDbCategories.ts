@@ -14,7 +14,7 @@ const fileDbCategories = {
         }
     },
     async getCategories() {
-        return data.map(({id, categoryName}) => ({id, categoryName}));
+        return data.map(({id, name}) => ({id, name: name}));
     },
     async getCategoryById() {
         return data;

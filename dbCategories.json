@@ -1,12 +1,17 @@
 [
   {
-    "id": "7076db06-349f-4e29-ae42-ad72901cc21b",
-    "categoryName": "Electronics",
+    "id": "af0881fb-bd89-4518-9e55-dfac7801400e",
+    "name": "Mebel",
+    "description": "First time message"
+  },
+  {
+    "id": "200bb48c-8113-4c6b-a59c-4d47fdb39de2",
+    "name": "Electronics",
     "description": "Second time message"
   },
   {
-    "id": "a06486e8-50bd-4080-a7cc-2b7c90ba4045",
-    "categoryName": "Computer",
+    "id": "fd177e5c-90b0-404e-a9aa-35940e9f8559",
+    "name": "Household appliances",
     "description": "Third time message"
   }
 ]

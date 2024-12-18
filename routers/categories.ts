@@ -6,11 +6,11 @@ const categoriesRouter = express.Router();
 
 categoriesRouter.post('/', async (req, res) => {
     const category: ICategoryWithoutId = {
-        categoryName: req.body.categoryName,
+        name: req.body.name,
         description: req.body.description,
     };
 
-    if (!req.body.categoryName) {
+    if (!req.body.name) {
         res.status(400).send({error: 'Category name must be present in the request'});
     }
 
@@ -42,7 +42,7 @@ categoriesRouter.delete('/:id', async (req, res) => {
     } else {
         categories.splice(categoryIndex, 1);
         await fileDbCategories.save();
-        res.send({message: 'Category deleted'});
+        res.send('Category deleted');
     }
 });
 
