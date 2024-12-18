@@ -1,10 +1,10 @@
 import {promises as fs} from 'fs';
 import {ICategory, ICategoryWithoutId} from "./types";
 
-const fileName = './db.json';
+const fileName = './dbCategories.json';
 let data: ICategory[] = [];
 
-const fileDb = {
+const fileDbCategories = {
     async init() {
         try {
             const fileContent = await fs.readFile(fileName);
@@ -28,4 +28,4 @@ const fileDb = {
     }
 };
 
-export default fileDb;
+export default fileDbCategories;

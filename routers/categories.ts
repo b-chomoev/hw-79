@@ -1,6 +1,6 @@
 import express from "express";
 import {ICategoryWithoutId} from "../types";
-import fileDb from "../fileDb";
+import fileDbCategories from "../fileDbCategories";
 
 const categoriesRouter = express.Router();
 
@@ -14,13 +14,13 @@ categoriesRouter.post('/', async (req, res) => {
         res.status(400).send({error: 'Category name must be present in the request'});
     }
 
-    const savedCategory = await fileDb.addCategory(category);
+    const savedCategory = await fileDbCategories.addCategory(category);
 
     res.send(savedCategory);
 });
 
 categoriesRouter.get('/', async (req, res) => {
-    const categories = await fileDb.getCategories();
+    const categories = await fileDbCategories.getCategories();
     res.send(categories);
 });
 

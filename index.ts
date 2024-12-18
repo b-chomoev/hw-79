@@ -1,7 +1,7 @@
 import express from 'express';
 import categoriesRouter from "./routers/categories";
 import fs = require('fs');
-import fileDb from './fileDb';
+import fileDbCategories from './fileDbCategories';
 
 const app = express();
 const port = 8000;
@@ -10,10 +10,10 @@ app.use(express.json());
 app.use('/categories', categoriesRouter);
 
 const run = async () => {
-    if (fs.existsSync('./db.json')) {
-        await fileDb.init();
+    if (fs.existsSync('./dbCategories.json')) {
+        await fileDbCategories.init();
     } else {
-        fs.writeFileSync('./db.json', JSON.stringify([]));
+        fs.writeFileSync('./dbCategories.json', JSON.stringify([]));
     }
 
     app.listen(port, () => {
