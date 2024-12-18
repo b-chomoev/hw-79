@@ -19,7 +19,7 @@ categoriesRouter.post('/', async (req, res) => {
     res.send(savedCategory);
 });
 
-categoriesRouter.get('/', async (req, res) => {
+categoriesRouter.get('/', async (_req, res) => {
     const categories = await fileDbCategories.getCategories();
     res.send(categories);
 });

@@ -1,26 +1,34 @@
+import {promises as fs} from 'fs';
 import {IPlace, IPlaceWithoutId} from "./types";
 import crypto from "crypto";
-import {promises as fs} from 'fs';
 
 const fileName = './dbPlaces.json';
-let data: IPlace[] = [];
+let dataPlace: IPlace[] = [];
 
 const fileDbPlaces = {
     async init() {
-
+        try {
+            const fileContent = await fs.readFile(fileName);
+            dataPlace = await JSON.parse(fileContent.toString()) as IPlace[];
+        } catch (e) {
+            console.error(e);
+        }
     },
     async getPlaces() {
-        return data;
+        return dataPlace.map(({id, name}) => ({id, name}));
+    },
+    async getPlaceById() {
+        return dataPlace;
     },
     async addPlace(place: IPlaceWithoutId) {
         const id = crypto.randomUUID();
         const result = {id, ...place};
-        data.push(result);
+        dataPlace.push(result);
         await this.save();
         return result;
     },
     async save() {
-        return fs.writeFile(fileName, JSON.stringify(data));
+        return fs.writeFile(fileName, JSON.stringify(dataPlace));
     }
 };
 

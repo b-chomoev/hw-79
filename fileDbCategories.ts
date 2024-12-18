@@ -1,5 +1,6 @@
 import {promises as fs} from 'fs';
 import {ICategory, ICategoryWithoutId} from "./types";
+import crypto from "crypto";
 
 const fileName = './dbCategories.json';
 let data: ICategory[] = [];
@@ -14,7 +15,7 @@ const fileDbCategories = {
         }
     },
     async getCategories() {
-        return data.map(({id, name}) => ({id, name: name}));
+        return data.map(({id, name}) => ({id, name}));
     },
     async getCategoryById() {
         return data;
