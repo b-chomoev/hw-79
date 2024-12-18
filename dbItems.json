@@ -1,0 +1,20 @@
+[
+  {
+    "id": "fcc398c4-da2a-4b2e-9422-f31c85b6740d",
+    "categoryId": "idCat",
+    "placeId": "idPlaces",
+    "name": "Laptop HP 450",
+    "description": "This is one of the best brands in the world",
+    "image": "images/2b797b96-962e-4b1a-8c29-fb412bb6229d.jpg",
+    "datetime": "2024-12-18T20:10:26.593Z"
+  },
+  {
+    "id": "da8cfe8e-9692-48f7-a322-3ff7b9576d0e",
+    "categoryId": "idCat",
+    "placeId": "idPlaces",
+    "name": "Laptop HP 450",
+    "description": "This is one of the best brands in the world",
+    "image": "images/3a875006-666a-40bf-9924-d4546eb6a8cd.jpg",
+    "datetime": "2024-12-18T20:15:04.870Z"
+  }
+]
