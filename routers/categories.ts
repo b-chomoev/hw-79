@@ -34,4 +34,16 @@ categoriesRouter.get('/:id', async (req, res) => {
     }
 });
 
+categoriesRouter.delete('/:id', async (req, res) => {
+    const categories = await fileDbCategories.getCategoryById();
+    const categoryIndex = categories.findIndex(category => category.id === req.params.id);
+    if (categoryIndex === -1) {
+        res.status(404).send({error: 'Category not found'});
+    } else {
+        categories.splice(categoryIndex, 1);
+        await fileDbCategories.save();
+        res.send({message: 'Category deleted'});
+    }
+});
+
 export default categoriesRouter;
