@@ -24,4 +24,14 @@ categoriesRouter.get('/', async (req, res) => {
     res.send(categories);
 });
 
+categoriesRouter.get('/:id', async (req, res) => {
+    const categories = await fileDbCategories.getCategoryById();
+    const category = categories.find(category => category.id === req.params.id);
+    if (category) {
+        res.send(category);
+    } else {
+        res.status(404).send({error: 'Category not found'});
+    }
+});
+
 export default categoriesRouter;

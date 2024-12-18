@@ -14,6 +14,9 @@ const fileDbCategories = {
         }
     },
     async getCategories() {
+        return data.map(({id, categoryName}) => ({id, categoryName}));
+    },
+    async getCategoryById() {
         return data;
     },
     async addCategory(message: ICategoryWithoutId) {
